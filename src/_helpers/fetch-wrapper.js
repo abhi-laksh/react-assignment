@@ -1,4 +1,4 @@
-import { store, authActions } from '_store';
+import { authActions, store } from '_store';
 
 export const fetchWrapper = {
     get: request('GET'),
@@ -36,7 +36,7 @@ function authHeader(url) {
 }
 
 function authToken() {
-    return store.getState().auth.user?.token;
+    return store.getState().auth.user?.tokens?.access?.token;
 }
 
 function handleResponse(response) {

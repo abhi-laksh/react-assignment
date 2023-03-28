@@ -28,7 +28,7 @@ function createExtraActions() {
 
     return {
         getAll: getAll()
-    };    
+    };
 
     function getAll() {
         return createAsyncThunk(

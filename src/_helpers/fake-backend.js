@@ -1,7 +1,7 @@
 export { fakeBackend };
 
 function fakeBackend() {
-    let users = [{ id: 1, username: 'test', password: 'test', firstName: 'Test', lastName: 'User' }];
+    let users = [{ id: 1, email: 'test', password: 'test', firstName: 'Test', lastName: 'User' }];
     let realFetch = window.fetch;
     window.fetch = function (url, opts) {
         return new Promise((resolve, reject) => {
@@ -25,14 +25,14 @@ function fakeBackend() {
             // route functions
 
             function authenticate() {
-                const { username, password } = body();
-                const user = users.find(x => x.username === username && x.password === password);
+                const { email, password } = body();
+                const user = users.find(x => x.email === email && x.password === password);
 
-                if (!user) return error('Username or password is incorrect');
+                if (!user) return error('Email or password is incorrect');
 
                 return ok({
                     id: user.id,
-                    username: user.username,
+                    email: user.email,
                     firstName: user.firstName,
                     lastName: user.lastName,
                     token: 'fake-jwt-token'

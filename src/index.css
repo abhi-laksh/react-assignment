@@ -1,3 +1,16 @@
 .app-container {
     min-height: 350px;
 }
+
+.form {
+    margin-top: 1.5rem;
+}
+
+.form-actions {
+    margin-top: 1.5rem;
+}
+
+.allcards .rccs {
+    margin-top: -180px !important;
+    transform: translateY(180px);
+}
